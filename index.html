@@ -1,0 +1,330 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Rajiv Pathak — Bioinformatics</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <div class="bg-glow" aria-hidden="true"></div>
+
+  <header>
+    <nav class="nav" id="topNav">
+      <a href="#home" class="active">Home</a>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <!-- DNA Left Rail -->
+  <!-- DNA Left Rail (spiral SVG tiles) -->
+<aside class="dna-rail" aria-hidden="true">
+  <div class="dna-track" id="dnaTrack">
+    <!-- Tile 1 -->
+    <svg class="dna-tile" viewBox="0 0 140 900" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <linearGradient id="strandGrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff5cd6" stop-opacity="0.9"/>
+          <stop offset="0.55" stop-color="#a855f7" stop-opacity="0.9"/>
+          <stop offset="1" stop-color="#38bdf8" stop-opacity="0.9"/>
+        </linearGradient>
+
+        <radialGradient id="beadGradA" cx="35%" cy="30%" r="70%">
+          <stop offset="0" stop-color="rgba(255,220,245,0.95)"/>
+          <stop offset="0.55" stop-color="rgba(255,92,214,0.85)"/>
+          <stop offset="1" stop-color="rgba(0,0,0,0.55)"/>
+        </radialGradient>
+
+        <radialGradient id="beadGradB" cx="35%" cy="30%" r="70%">
+          <stop offset="0" stop-color="rgba(235,225,255,0.95)"/>
+          <stop offset="0.55" stop-color="rgba(168,85,247,0.85)"/>
+          <stop offset="1" stop-color="rgba(0,0,0,0.55)"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Backbones -->
+      <path d="M38,0
+               C100,65 100,120 38,180
+               C-20,240 -20,300 38,360
+               C100,420 100,480 38,540
+               C-20,600 -20,660 38,720
+               C100,780 100,840 38,900"
+            fill="none" stroke="url(#strandGrad)" stroke-width="3.2" opacity="0.95"/>
+
+      <path d="M102,0
+               C40,65 40,120 102,180
+               C160,240 160,300 102,360
+               C40,420 40,480 102,540
+               C160,600 160,660 102,720
+               C40,780 40,840 102,900"
+            fill="none" stroke="url(#strandGrad)" stroke-width="3.2" opacity="0.95"/>
+
+      <!-- Rungs -->
+      <g stroke-linecap="round">
+        <!-- alternate warm/cool like the reference -->
+        <g stroke="rgba(255,200,60,0.70)" stroke-width="2.2">
+          <line x1="44" y1="55"  x2="96" y2="80"/>
+          <line x1="44" y1="215" x2="96" y2="240"/>
+          <line x1="44" y1="375" x2="96" y2="400"/>
+          <line x1="44" y1="535" x2="96" y2="560"/>
+          <line x1="44" y1="695" x2="96" y2="720"/>
+          <line x1="44" y1="855" x2="96" y2="880"/>
+        </g>
+        <g stroke="rgba(70,170,255,0.55)" stroke-width="2.0">
+          <line x1="96" y1="135" x2="44" y2="160"/>
+          <line x1="96" y1="295" x2="44" y2="320"/>
+          <line x1="96" y1="455" x2="44" y2="480"/>
+          <line x1="96" y1="615" x2="44" y2="640"/>
+          <line x1="96" y1="775" x2="44" y2="800"/>
+        </g>
+      </g>
+
+      <!-- Beads on strands (gives the “spiral” feel without heavy 3D) -->
+      <g opacity="0.95">
+        <!-- left strand beads -->
+        <circle cx="38" cy="90"  r="5.5" fill="url(#beadGradA)"/>
+        <circle cx="38" cy="270" r="6.2" fill="url(#beadGradA)"/>
+        <circle cx="38" cy="450" r="5.5" fill="url(#beadGradA)"/>
+        <circle cx="38" cy="630" r="6.2" fill="url(#beadGradA)"/>
+        <circle cx="38" cy="810" r="5.5" fill="url(#beadGradA)"/>
+
+        <!-- right strand beads -->
+        <circle cx="102" cy="180" r="6.2" fill="url(#beadGradB)"/>
+        <circle cx="102" cy="360" r="5.5" fill="url(#beadGradB)"/>
+        <circle cx="102" cy="540" r="6.2" fill="url(#beadGradB)"/>
+        <circle cx="102" cy="720" r="5.5" fill="url(#beadGradB)"/>
+        <circle cx="102" cy="870" r="6.2" fill="url(#beadGradB)"/>
+      </g>
+    </svg>
+
+    <!-- Tile 2 (duplicate for seamless wrap) -->
+    <svg class="dna-tile" viewBox="0 0 140 900" preserveAspectRatio="xMidYMid meet">
+      <!-- Reuse same drawing; duplicate for looping -->
+      <use href="#"></use>
+      <defs>
+        <linearGradient id="strandGrad2" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#ff5cd6" stop-opacity="0.9"/>
+          <stop offset="0.55" stop-color="#a855f7" stop-opacity="0.9"/>
+          <stop offset="1" stop-color="#38bdf8" stop-opacity="0.9"/>
+        </linearGradient>
+
+        <radialGradient id="beadGradA2" cx="35%" cy="30%" r="70%">
+          <stop offset="0" stop-color="rgba(255,220,245,0.95)"/>
+          <stop offset="0.55" stop-color="rgba(255,92,214,0.85)"/>
+          <stop offset="1" stop-color="rgba(0,0,0,0.55)"/>
+        </radialGradient>
+
+        <radialGradient id="beadGradB2" cx="35%" cy="30%" r="70%">
+          <stop offset="0" stop-color="rgba(235,225,255,0.95)"/>
+          <stop offset="0.55" stop-color="rgba(168,85,247,0.85)"/>
+          <stop offset="1" stop-color="rgba(0,0,0,0.55)"/>
+        </radialGradient>
+      </defs>
+
+      <path d="M38,0 C100,65 100,120 38,180 C-20,240 -20,300 38,360 C100,420 100,480 38,540 C-20,600 -20,660 38,720 C100,780 100,840 38,900"
+            fill="none" stroke="url(#strandGrad2)" stroke-width="3.2" opacity="0.95"/>
+      <path d="M102,0 C40,65 40,120 102,180 C160,240 160,300 102,360 C40,420 40,480 102,540 C160,600 160,660 102,720 C40,780 40,840 102,900"
+            fill="none" stroke="url(#strandGrad2)" stroke-width="3.2" opacity="0.95"/>
+
+      <g stroke-linecap="round">
+        <g stroke="rgba(255,200,60,0.70)" stroke-width="2.2">
+          <line x1="44" y1="55"  x2="96" y2="80"/>
+          <line x1="44" y1="215" x2="96" y2="240"/>
+          <line x1="44" y1="375" x2="96" y2="400"/>
+          <line x1="44" y1="535" x2="96" y2="560"/>
+          <line x1="44" y1="695" x2="96" y2="720"/>
+          <line x1="44" y1="855" x2="96" y2="880"/>
+        </g>
+        <g stroke="rgba(70,170,255,0.55)" stroke-width="2.0">
+          <line x1="96" y1="135" x2="44" y2="160"/>
+          <line x1="96" y1="295" x2="44" y2="320"/>
+          <line x1="96" y1="455" x2="44" y2="480"/>
+          <line x1="96" y1="615" x2="44" y2="640"/>
+          <line x1="96" y1="775" x2="44" y2="800"/>
+        </g>
+      </g>
+
+      <g opacity="0.95">
+        <circle cx="38" cy="90"  r="5.5" fill="url(#beadGradA2)"/>
+        <circle cx="38" cy="270" r="6.2" fill="url(#beadGradA2)"/>
+        <circle cx="38" cy="450" r="5.5" fill="url(#beadGradA2)"/>
+        <circle cx="38" cy="630" r="6.2" fill="url(#beadGradA2)"/>
+        <circle cx="38" cy="810" r="5.5" fill="url(#beadGradA2)"/>
+
+        <circle cx="102" cy="180" r="6.2" fill="url(#beadGradB2)"/>
+        <circle cx="102" cy="360" r="5.5" fill="url(#beadGradB2)"/>
+        <circle cx="102" cy="540" r="6.2" fill="url(#beadGradB2)"/>
+        <circle cx="102" cy="720" r="5.5" fill="url(#beadGradB2)"/>
+        <circle cx="102" cy="870" r="6.2" fill="url(#beadGradB2)"/>
+      </g>
+    </svg>
+  </div>
+</aside>
+
+  <main>
+    <div class="name-wrap">
+        <div class="name">Rajiv Pathak</div>
+      </div>
+    <section id="home" class="hero">
+      <span class="pill">Bioinformatics • Genomics • Data Science</span>
+
+      
+
+      <h1>Decoding biology with data.</h1>
+      <p class="sub">
+        Single-page portfolio with scroll-synced continuous DNA animation.
+      </p>
+
+      <div class="cta-row">
+        <a class="btn primary" href="#projects">View projects</a>
+        <a class="btn" href="#contact">Contact</a>
+      </div>
+    </section>
+
+    <section id="about">
+  <h2>About</h2>
+  <p>
+    I am a molecular biologist with a research focus on understanding therapeutic vulnerabilities in aggressive cancers,
+    particularly triple-negative breast cancer. My work centers on identifying molecular mechanisms that contribute to
+    chemotherapy resistance and exploring strategies to improve treatment outcomes.
+  </p>
+  <p>
+    I use experimental and analytical approaches in molecular and cellular biology to study cancer signaling pathways
+    and treatment response. Through my research, I aim to contribute to the development of more effective and durable
+    therapeutic strategies with direct relevance to patient care.
+  </p>
+</section>
+
+    <section id="skills">
+  <h2>Skills</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>Molecular & Cellular Biology</h3>
+      <p>
+        Cell culture • Sterile technique • Cell viability/proliferation assays • Transfection • Western blotting •
+        Immunoblotting • Immunofluorescence/fluorescence microscopy • Flow cytometry (basic) • Sample preparation
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Genetics & Omics (Wet-Lab)</h3>
+      <p>
+        DNA/RNA extraction • PCR/qPCR • Gel electrophoresis • Library/sample QC concepts • Experimental design basics •
+        Troubleshooting and documentation
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Cancer Biology</h3>
+      <p>
+        Signaling pathways • Drug response/chemotherapy resistance concepts • Tumor biology fundamentals • Literature review
+        and hypothesis-driven experimentation
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Bioinformatics & Data Analysis</h3>
+      <p>
+        RNA-seq analysis concepts • Differential expression (DESeq2/edgeR concepts) • Data wrangling • Basic statistics •
+        Reproducible workflows • Data visualization
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Computational Tools</h3>
+      <p>
+        Python (pandas, numpy, matplotlib) • R (tidyverse) • Jupyter • Git/GitHub • Linux/CLI basics • Docker (basic)
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>Scientific Communication</h3>
+      <p>
+        Manuscript and report writing • Figure preparation • Poster/presentation development • Cross-disciplinary collaboration
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section id="projects">
+  <h2>Projects & Publications</h2>
+
+  <div class="grid">
+    <div class="card">
+      <h3>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          Molecular determinants of chemotherapy resistance in triple-negative breast cancer
+        </a>
+      </h3>
+      <p>
+        Investigates molecular mechanisms that contribute to therapeutic resistance in triple-negative breast cancer,
+        with the goal of identifying potential targets to improve treatment response and durability.
+      </p>
+      <p class="meta">
+        Journal publication • Add Google Scholar link
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          Identification of therapeutic vulnerabilities in aggressive breast cancer subtypes
+        </a>
+      </h3>
+      <p>
+        Focuses on uncovering exploitable weaknesses in cancer signaling pathways that may be leveraged for
+        targeted or combination therapies in treatment-resistant tumors.
+      </p>
+      <p class="meta">
+        Peer-reviewed article • Add Google Scholar link
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          Functional characterization of cancer-associated signaling pathways
+        </a>
+      </h3>
+      <p>
+        Examines key molecular pathways involved in cancer progression and drug response using experimental
+        and analytical approaches in molecular and cellular biology.
+      </p>
+      <p class="meta">
+        Research study • Add Google Scholar link
+      </p>
+    </div>
+
+    <div class="card">
+      <h3>
+        <a href="#" target="_blank" rel="noopener noreferrer">
+          Translational insights into treatment response and resistance mechanisms
+        </a>
+      </h3>
+      <p>
+        Integrates experimental findings with existing literature to generate translational insights
+        relevant to improving therapeutic strategies in oncology.
+      </p>
+      <p class="meta">
+        Collaborative publication • Add Google Scholar link
+      </p>
+    </div>
+  </div>
+</section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>
+        Add links for Email • GitHub • LinkedIn.
+      </p>
+      <footer>© <span id="year"></span> Rajiv Pathak</footer>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>

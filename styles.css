@@ -1,0 +1,291 @@
+:root{
+  --bg: #070a12;
+  --panel: rgba(255,255,255,0.04);
+  --border: rgba(255,255,255,0.10);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+
+  --dna-left: 24px;
+  --dna-width: 140px;
+  --content-max: 980px;
+
+  --radius: 16px;
+}
+
+*{ box-sizing: border-box; }
+html, body{ height: 100%; }
+body{
+  margin:0;
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* Subtle background glow */
+.bg-glow{
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(45,212,191,0.10), transparent 60%),
+    radial-gradient(700px 500px at 80% 20%, rgba(56,189,248,0.10), transparent 55%),
+    radial-gradient(900px 700px at 60% 90%, rgba(168,85,247,0.06), transparent 60%);
+  z-index: 0;
+}
+
+/* Top navigation (top right) */
+header{
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  padding: 14px 18px;
+  background: linear-gradient(to bottom, rgba(7,10,18,0.85), rgba(7,10,18,0.35), transparent);
+  backdrop-filter: blur(10px);
+}
+.nav{
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  gap: 10px;
+  max-width: 1240px;
+  margin: 0 auto;
+}
+.nav a{
+  text-decoration: none;
+  color: var(--text);
+  font-size: 14px;
+  padding: 10px 12px;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: rgba(255,255,255,0.02);
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+  letter-spacing: 0.2px;
+}
+.nav a:hover{
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(255,255,255,0.10);
+  transform: translateY(-1px);
+}
+.nav a.active{
+  border-color: rgba(45,212,191,0.35);
+  background: rgba(45,212,191,0.08);
+}
+
+/* DNA rail */
+.dna-rail{
+  position: fixed;
+  left: var(--dna-left);
+  top: 0;
+  width: var(--dna-width);
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.98;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 92, 214, 0.10))
+    drop-shadow(0 0 26px rgba(56, 189, 248, 0.08));
+}
+#dnaCanvas{
+  width: 100%;
+  height: 100%;
+  display: block;
+}
+
+/* Layout */
+main{
+  position: relative;
+  z-index: 5;
+  max-width: var(--content-max);
+  margin-left: calc(var(--dna-left) + var(--dna-width) + 44px);
+  margin-right: auto;
+  padding: 110px 20px 120px;
+}
+
+/* Hero */
+.hero{ padding: 22px 0 40px; }
+
+.pill{
+  display: inline-flex;
+  gap: 8px;
+  align-items: center;
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  color: var(--muted);
+  font-size: 13px;
+  letter-spacing: 0.2px;
+}
+
+.name-wrap{
+  display: flex;
+  justify-content: center;
+  margin: 18px 0 12px;
+}
+.name{
+  font-size: clamp(26px, 4vw, 34px);
+  font-weight: 800;
+  letter-spacing: 0.28em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 6px 18px;
+  border-bottom: 2px solid rgba(45,212,191,0.35);
+  background: linear-gradient(90deg, #38bdf8, #2dd4bf, #ff5cd6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+h1{
+  margin: 10px 0 10px;
+  font-size: clamp(34px, 4.2vw, 54px);
+  line-height: 1.06;
+  letter-spacing: -0.6px;
+}
+.sub{
+  margin: 0;
+  color: var(--muted);
+  font-size: 16px;
+  line-height: 1.7;
+  max-width: 70ch;
+}
+
+.cta-row{
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 18px;
+}
+.btn{
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 11px 14px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.10);
+  background: rgba(255,255,255,0.04);
+  color: var(--text);
+  text-decoration: none;
+  font-size: 14px;
+  transition: transform .12s ease, background .12s ease, border-color .12s ease;
+}
+.btn:hover{
+  transform: translateY(-1px);
+  background: rgba(255,255,255,0.07);
+  border-color: rgba(255,255,255,0.16);
+}
+.btn.primary{
+  background: rgba(45,212,191,0.12);
+  border-color: rgba(45,212,191,0.30);
+}
+.btn.primary:hover{
+  background: rgba(45,212,191,0.16);
+  border-color: rgba(45,212,191,0.40);
+}
+
+/* Sections */
+section{
+  padding: 54px 0;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+h2{
+  margin: 0 0 10px;
+  font-size: 22px;
+  letter-spacing: -0.2px;
+}
+p{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.75;
+  max-width: 75ch;
+}
+
+.grid{
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  gap: 14px;
+  margin-top: 16px;
+}
+.card{
+  grid-column: span 6;
+  padding: 16px;
+  border-radius: var(--radius);
+  background: var(--panel);
+  border: 1px solid var(--border);
+}
+.card h3{
+  margin: 0 0 6px;
+  font-size: 15px;
+  letter-spacing: -0.1px;
+}
+.card p{ font-size: 14px; }
+
+footer{
+  padding: 40px 0 10px;
+  color: rgba(255,255,255,0.55);
+  font-size: 13px;
+}
+
+@media (max-width: 900px){
+  .card{ grid-column: span 12; }
+}
+@media (max-width: 720px){
+  :root{ --dna-width: 92px; --dna-left: 14px; }
+  main{
+    margin-left: calc(var(--dna-left) + var(--dna-width) + 18px);
+    padding-top: 96px;
+  }
+  header{ padding: 12px 12px; }
+  .nav{ gap: 8px; }
+  .nav a{ padding: 9px 10px; font-size: 13px; }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce){
+  .dna-rail{ opacity: 0.85; }
+}
+.dna-rail{
+  position: fixed;
+  left: var(--dna-left);
+  top: 0;
+  width: var(--dna-width);
+  height: 100vh;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: 10;
+  opacity: 0.95;
+  filter:
+    drop-shadow(0 0 10px rgba(255, 92, 214, 0.10))
+    drop-shadow(0 0 26px rgba(56, 189, 248, 0.08));
+}
+
+.dna-track{
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  will-change: transform;
+}
+
+.dna-tile{
+  width: 100%;
+  height: 100vh;   /* important: 1 tile = 100vh */
+  display: block;
+}
+.card h3 a{
+  color: inherit;
+  text-decoration: none;
+}
+.card h3 a:hover{
+  text-decoration: underline;
+}
+
+.meta{
+  margin-top: 8px;
+  font-size: 13px;
+  color: rgba(255,255,255,0.55);
+}
